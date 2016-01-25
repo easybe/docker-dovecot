@@ -36,8 +36,8 @@ RUN groupadd -g 999 postfix \
     'auth_mechanisms=plain login ntlm apop' \
  && /opt/editconf.py /etc/dovecot/conf.d/10-ssl.conf \
     ssl=required \
-    'ssl_cert=</ssl/ssl_certificate.pem' \
-    'ssl_key=</ssl/ssl_private_key.pem' \
+    'ssl_cert=</etc/letsencrypt/live/synergy-village.org/fullchain.pem' \
+    'ssl_key=</etc/letsencrypt/live/synergy-village.org/privkey.pem' \
     'ssl_protocols=!SSLv3 !SSLv2' \
     'ssl_cipher_list=TLSv1+HIGH !SSLv2 !RC4 !aNULL !eNULL !3DES @STRENGTH' \
  && /opt/editconf.py /etc/dovecot/conf.d/20-imap.conf \
