@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-sed -i "s/##DB_PASS##/${DB_ENV_MYSQL_PASSWORD}/" /etc/dovecot/dovecot-sql.conf.ext
+sed -i "s/##DB_PASS##/${MYSQL_PASSWORD}/" /etc/dovecot/dovecot-sql.conf.ext
 sed -i "s/##HOSTNAME##/${HOSTNAME}/" /etc/dovecot/conf.d/99-local-lmtp.conf
 sed -i "s/##HOSTNAME##/${HOSTNAME}/" /etc/dovecot/conf.d/99-local-auth.conf
 
