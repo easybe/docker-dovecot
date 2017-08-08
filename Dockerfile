@@ -8,6 +8,7 @@ RUN apt-get update \
       dovecot-mysql \
       dovecot-sieve \
       dovecot-managesieved \
+      ssmtp \
  && rm -rf /var/lib/apt/lists/*
 
 COPY 99-local-lmtp.conf /etc/dovecot/conf.d/99-local-lmtp.conf
@@ -18,6 +19,7 @@ COPY startup.sh /startup.sh
 COPY 15-mailboxes.conf /etc/dovecot/conf.d/15-mailboxes.conf
 COPY sieve-spam.sieve /etc/dovecot/sieve-spam.sieve
 COPY 99-local-sieve.conf /etc/dovecot/conf.d/99-local-sieve.conf
+COPY ssmtp.conf /etc/ssmtp/ssmtp.conf
 
 RUN sievec /etc/dovecot/sieve-spam.sieve
 
